@@ -1,7 +1,8 @@
-define ["backbone", "models/facebook-session"], (Backbone, FacebookSession) ->
+define ["backbone", "models/user"], (Backbone, User) ->
   class AppView extends Backbone.View
     el: "body"
 
     initialize: ->
-      new FacebookSession
+      user = new User
+      user.login()
 
