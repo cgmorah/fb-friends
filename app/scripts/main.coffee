@@ -18,5 +18,5 @@ require.config
     # Third party libraries (external)
     "facebook-sdk": "//connect.facebook.net/en_US/all"
 
-require ["views/app"], (AppView) ->
+require ["lib/jquery-extensions", "views/app"], (jQueryExtensions, AppView) ->
   new AppView
