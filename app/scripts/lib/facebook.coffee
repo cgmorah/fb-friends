@@ -1,4 +1,4 @@
-define ["facebook-sdk"], (FacebookSDK) ->
+define ["underscore", "facebook-sdk"], (_, FacebookSDK) ->
   # Extend the Facebook SDK with a couple of covenience methods
   class Facebook extends FacebookSDK
     @BASE_URL = "https://graph.facebook.com"
@@ -11,3 +11,5 @@ define ["facebook-sdk"], (FacebookSDK) ->
     @init: FacebookSDK.init.bind FacebookSDK, @INIT_OPTIONS
 
     @userURL: (accessToken) -> "#{@BASE_URL}/me?access_token=#{accessToken}"
+
+    @getLoginStatus: _.defer.bind(_, FacebookSDK.getLoginStatus.bind(FacebookSDK))
