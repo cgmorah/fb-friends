@@ -1,3 +1,5 @@
+window.log = -> @console?.log?.apply @console, arguments
+
 require.config
   shim: {
     handlebars: exports: "Handlebars"
