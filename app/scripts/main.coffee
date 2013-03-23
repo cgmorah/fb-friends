@@ -12,5 +12,5 @@ require.config
     backbone: "../components/backbone-amd/backbone"
     underscore: "../components/underscore-amd/underscore"
 
-require [], ->
-  console.log "Hello World!"
+require ["views/app"], (AppView) ->
+ new AppView
