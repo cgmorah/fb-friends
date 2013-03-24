@@ -5,6 +5,7 @@ define ["backbone", "models/facebook-session"], (Backbone, FacebookSession) ->
 
     initialize: ->
       session = new FacebookSession
+      session.on "loggedIn", @trigger.bind(this, "loggedIn")
 
     login: ->
       session.login()

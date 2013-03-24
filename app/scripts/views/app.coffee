@@ -15,5 +15,8 @@ define [
 
     initialize: ->
       user = new User
+
       headerView = new HeaderView(user)
       backgroundView = new BackgroundView(user)
+
+      user.on "loggedIn", => @$el.find(".login").animateOut(true)

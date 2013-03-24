@@ -84,6 +84,11 @@ header {
   &:active {
     background: darken($main-color, 7%);
   }
+
+  &.out {
+    transition: opacity 0.75s;
+    opacity: 0;
+  }
 }
 
 .background {
