@@ -1,7 +1,8 @@
-define ["backbone", "handlebars"], (Backbone, Handlebars) ->
+define ["backbone", "handlebars", "text!../templates/header.handlebars"]
+, (Backbone, Handlebars, template) ->
   class HeaderView extends Backbone.View
     el: "header"
-    template: Handlebars.compile $("#header-template").html()
+    template: Handlebars.compile template
 
     initialize: (@user) ->
       @user.on "change:name", @render.bind(this)

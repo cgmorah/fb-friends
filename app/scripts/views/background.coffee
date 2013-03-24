@@ -1,7 +1,8 @@
-define ["backbone", "handlebars"], (Backbone, Handlebars) ->
+define ["backbone", "handlebars", "text!../templates/background.handlebars"]
+, (Backbone, Handlebars, template) ->
   class BackgroundView extends Backbone.View
     el: "body"
-    template: Handlebars.compile $("#background-template").html()
+    template: Handlebars.compile template
 
     initialize: (@user) ->
       @user.on "change:cover", @render.bind(this)

@@ -13,8 +13,6 @@ define [
     events:
       "click .login": -> user.login()
 
-    backgroundTemplate: Handlebars.compile $("#background-template").html()
-
     initialize: ->
       user = new User
       headerView = new HeaderView(user)
