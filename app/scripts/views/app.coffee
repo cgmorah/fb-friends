@@ -3,7 +3,8 @@ define [
     "models/user"
     "views/header"
     "views/background"
-], (Backbone, User, HeaderView, BackgroundView) ->
+    "views/search"
+], (Backbone, User, HeaderView, BackgroundView, SearchView) ->
   class AppView extends Backbone.View
     user = null
     headerView = null
@@ -18,5 +19,6 @@ define [
 
       headerView = new HeaderView(user)
       backgroundView = new BackgroundView(user)
+      searchView = new SearchView(@$el, user)
 
       user.on "loggedIn", => @$el.find(".login").animateOut(true)
