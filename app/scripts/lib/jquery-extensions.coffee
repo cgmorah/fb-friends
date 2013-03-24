@@ -1,4 +1,9 @@
-require ["jquery", "underscore"], ($, _) ->
+require [
+  "jquery"
+  "underscore"
+  "mousewheel"
+  "jscrollpane"]
+, ($, _, mouseWheel, jScrollPane) ->
   # Add the class "out" to the element and hide or remove it after
   # a transition or animation has completed, assuming .out starts
   # one.

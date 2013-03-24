@@ -4,6 +4,8 @@ require.config
   shim: {
     handlebars: exports: "Handlebars"
     "facebook-sdk": exports: "FB"
+    jscrollpane: ["jquery"]
+    mousewheel: ["jquery"]
   }
   paths:
     # RequireJS plugins
@@ -11,6 +13,9 @@ require.config
 
     # Third party libraries
     jquery: "../components/jquery/jquery"
+    jscrollpane: "../components/jquery.jscrollpane/jquery.jscrollpane"
+    mousewheel: "../components/jquery-mousewheel/jquery.mousewheel"
+
     handlebars: "../components/handlebars/handlebars"
     backbone: "../components/backbone-amd/backbone"
     underscore: "../components/underscore-amd/underscore"

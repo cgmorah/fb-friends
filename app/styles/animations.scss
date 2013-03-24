@@ -21,3 +21,7 @@
 @keyframes show-search {
   0% { opacity: 0 }
 }
+
+@keyframes show-friend-list {
+  0% { opacity: 0; transform: translate3d(0, 20px, 0)}
+}
