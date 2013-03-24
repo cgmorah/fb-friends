@@ -37,7 +37,7 @@ header {
     transition: transform 0.5s;
 
     &.out {
-      transform: translateY(-250px)
+      transform: translateY(-250px) translateZ(0);
     }
   }
 
