@@ -10,6 +10,8 @@ define ["underscore", "facebook-sdk"], (_, FacebookSDK) ->
 
     @init: FacebookSDK.init.bind FacebookSDK, @INIT_OPTIONS
 
-    @userURL: (accessToken) -> "#{@BASE_URL}/me?access_token=#{accessToken}"
+    @userURL: (accessToken) ->
+      "#{@BASE_URL}/me?access_token=#{accessToken}" +
+      "&fields=id,name,first_name,last_name,picture,cover"
 
     @getLoginStatus: _.defer.bind(_, FacebookSDK.getLoginStatus.bind(FacebookSDK))
