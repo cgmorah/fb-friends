@@ -164,6 +164,12 @@ header {
     &:hover {
       background-color: lighten($main-color, 7%);
     }
+
+    &:active {
+      background-position-y: 19px;
+      transition-duration: 0s;
+      background-color: darken($main-color, 7%);
+    }
   }
 }
 
