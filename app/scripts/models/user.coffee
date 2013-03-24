@@ -1,12 +1,11 @@
-define ["backbone", "models/facebook-session"], (Backbone, FacebookSession) ->
+define ["backbone", "lib/facebook"], (Backbone, Facebook) ->
   class User extends Backbone.Model
-    session = null
-    url: -> session.userURL()
+    url: -> Facebook.userURL()
 
     initialize: ->
-      session = new FacebookSession
-      session.on "loggedIn", @trigger.bind(this, "loggedIn")
+      Facebook.init()
+      Facebook.on "loggedIn", @trigger.bind(this, "loggedIn")
 
     login: ->
-      session.login()
-      session.once "loggedIn", @fetch.bind(this)
+      Facebook.login()
+      @once "loggedIn", @fetch.bind(this)
