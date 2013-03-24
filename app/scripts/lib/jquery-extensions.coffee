@@ -3,19 +3,8 @@ require ["jquery", "underscore"], ($, _) ->
   # a transition or animation has completed, assuming .out starts
   # one.
   $.fn.animateOut = ( ->
-
-    transitionEnd = {
-      "WebkitTransition" : "webkitTransitionEnd"
-      "MozTransition"    : "transitionend"
-      "OTransition"      : "oTransitionEnd"
-      "msTransition"     : "MSTransitionEnd"
-      "transition"       : "transitionend"
-    }[Modernizr.prefixed "transition"]
-
-    animationEnd = transitionEnd.replace /transition/i, (match) ->
-      "#{if match[0] is "t" then "a" else "A"}nimation"
-
-    end = "#{transitionEnd}.animateOut #{animationEnd}.animateOut"
+    end = "webkitTransitionEnd oTransitionEnd MSTransitionEnd transitionend
+           webkitAnimationEnd oAnimationEnd MSAnimationEnd animationend"
 
     animateOut = (el, remove, callback) ->
       if $.isFunction(remove)
@@ -28,8 +17,7 @@ require ["jquery", "underscore"], ($, _) ->
         _.defer(callback) if callback
 
       el.addClass "out"
-      el.on end, =>
-        el.off end
+      el.one end, =>
         el[method]()
         callback?()
 
