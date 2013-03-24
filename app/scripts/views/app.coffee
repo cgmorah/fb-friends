@@ -1,7 +1,13 @@
-define ["backbone", "handlebars", "models/user", "views/header"], (Backbone, Handlebars, User, HeaderView) ->
+define [
+    "backbone"
+    "models/user"
+    "views/header"
+    "views/background"
+], (Backbone, User, HeaderView, BackgroundView) ->
   class AppView extends Backbone.View
     user = null
     headerView = null
+    backgroundView = null
 
     el: "body"
     events:
@@ -12,5 +18,4 @@ define ["backbone", "handlebars", "models/user", "views/header"], (Backbone, Han
     initialize: ->
       user = new User
       headerView = new HeaderView(user)
-      user.on "change:cover", =>
-        @$el.append @backgroundTemplate(user.toJSON())
+      backgroundView = new BackgroundView(user)
