@@ -80,6 +80,10 @@ header {
   &:hover {
     background: lighten($main-color, 7%);
   }
+
+  &:active {
+    background: darken($main-color, 7%);
+  }
 }
 
 .background {
