@@ -58,6 +58,19 @@ header {
     font-size: 1.4em;
     animation: show-info 1s 1s both;
   }
+
+  &.minimize {
+    $duration: 1s;
+    transition: all $duration;
+    height: 80px;
+    padding: 0;
+
+    .welcome {
+      transition: all $duration;
+      opacity: 0;
+      margin-top: -0.65em;
+    }
+  }
 }
 
 .login {
