@@ -241,15 +241,26 @@ module.exports = function (grunt) {
                 }]
             },
             components: {
-              files: [{
-                expand:true,
-                dot:true,
-                cwd: '<%= yeoman.app %>',
-                dest: '.tmp',
-                src: [
-                  'components/{,*/}*.js'
-                ]
-              }]
+                files: [{
+                    expand:true,
+                    dot:true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '.tmp',
+                    src: [
+                    'components/{,*/}*.js'
+                    ]
+                }]
+            },
+            templates: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '.tmp',
+                    src: [
+                      'scripts/templates/{,*/}*.handlebars'
+                    ]
+                }]
             }
         },
         bower: {
