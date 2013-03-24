@@ -1,4 +1,4 @@
-define ["backbone", "handlebars", "text!../templates/background.handlebars"]
+define ["backbone", "handlebars", "text!templates/background.handlebars"]
 , (Backbone, Handlebars, template) ->
   class BackgroundView extends Backbone.View
     el: "body"

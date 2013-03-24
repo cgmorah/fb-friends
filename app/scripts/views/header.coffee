@@ -1,4 +1,4 @@
-define ["backbone", "handlebars", "text!../templates/header.handlebars"]
+define ["backbone", "handlebars", "text!templates/header.handlebars"]
 , (Backbone, Handlebars, template) ->
   class HeaderView extends Backbone.View
     el: "header"

@@ -1,4 +1,4 @@
-define ["backbone", "handlebars", "text!../templates/search.handlebars"]
+define ["backbone", "handlebars", "text!templates/search.handlebars"]
 , (Backbone, Handlebars, template) ->
   class SearchView extends Backbone.View
     className: "search"
