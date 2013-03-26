@@ -5,6 +5,10 @@ define ["backbone", "jquery", "underscore", "handlebars", "text!templates/search
     template: Handlebars.compile template
 
     events:
+      "click .icon": "selectFriend"
+      "keypress input": (e) ->
+        @selectFriend() if e.originalEvent.keyCode is 13  #Enter
+
       "keydown input": "debouncedSearchFriends"
 
     initialize: ({app}) ->
@@ -27,3 +31,7 @@ define ["backbone", "jquery", "underscore", "handlebars", "text!templates/search
     # method until 100ms have elapsed since the last invocation.
     # This prevents searches while the user is still typing.
     debouncedSearchFriends: _.debounce(searchFriends, 100)
+
+    selectFriend: ->
+      friend = @app.friendListView.topFriend
+      window.open friend.get("link") if friend

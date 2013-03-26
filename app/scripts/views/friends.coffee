@@ -4,6 +4,7 @@ define ["backbone", "views/friend"]
     tagName: "ul"
     className: "friend-list"
     collection: null
+    topFriend: null
 
     initialize: ({app}) ->
       @app = app
@@ -29,11 +30,13 @@ define ["backbone", "views/friend"]
       catch error
         return
 
+      @topFriend = null
       for friendView in @views
         name = friendView.model.get "name"
 
         if regex.test name
           friendView.show search
+          @topFriend = friendView.model unless @topFriend
         else
           friendView.hide()
 
