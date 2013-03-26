@@ -13,5 +13,6 @@ define ["backbone", "lib/facebook", "models/friend"]
         success: (response) =>
           @reset(response.data)
 
-    initialize: (@user) ->
-      @user.on "loggedIn", @fetch.bind(this)
+    initialize: ({app}) ->
+      @app = app
+      @app.user.on "loggedIn", @fetch.bind(this)

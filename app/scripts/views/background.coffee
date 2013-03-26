@@ -4,8 +4,9 @@ define ["backbone", "handlebars", "text!templates/background.handlebars"]
     el: "body"
     template: Handlebars.compile template
 
-    initialize: (@user) ->
-      @user.on "change:cover", @render.bind(this)
+    initialize: ({app}) ->
+      @app = app
+      @app.user.on "change:cover", @render.bind(this)
 
     render: ->
-      @$el.append @template(@user.toJSON())
+      @$el.append @template(@app.user.toJSON())

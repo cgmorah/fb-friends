@@ -4,9 +4,11 @@ define ["backbone", "handlebars", "text!templates/search.handlebars"]
     className: "search"
     template: Handlebars.compile template
 
-    initialize: (@$parent, @user) ->
-      @user.once "loggedIn", @render.bind(this)
+    initialize: ({app}) ->
+      @app = app
+      @app.user.once "loggedIn", @render.bind(this)
 
     render: ->
       @$el.append @template()
       @$parent.append @$el
+      @app.$el.append @$el

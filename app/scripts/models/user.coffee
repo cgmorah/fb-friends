@@ -2,7 +2,8 @@ define ["backbone", "lib/facebook"], (Backbone, Facebook) ->
   class User extends Backbone.Model
     url: -> Facebook.userURL()
 
-    initialize: ->
+    initialize: ({app}) ->
+      @app = app
       Facebook.init()
       Facebook.on "loggedIn", @trigger.bind(this, "loggedIn")
       @on "change:cover", @fullSizeCover.bind(this)
