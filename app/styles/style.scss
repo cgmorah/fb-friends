@@ -177,7 +177,7 @@ header {
   position: relative;
   z-index: 10;
   width: 470px;
-  height: 342px;
+  height: 347px;
   margin: 20px auto;
   list-style-type: none;
   overflow: auto;
@@ -212,6 +212,14 @@ header {
       top: 1px;
       transition-duration: 0s;
       background-color: darken(whitesmoke, 5%);
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
     }
 
     img {

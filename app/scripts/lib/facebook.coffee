@@ -29,8 +29,8 @@ define ["underscore", "backbone", "facebook-sdk"], (_, Backbone, FacebookSDK) ->
       "&fields=id,name,first_name,last_name,picture,cover"
     @friendURL: (id) ->
       "#{BASE_URL}/#{id}?access_token=#{@getAccessToken()}" +
-      "&fields=id,name,picture,cover"
+      "&fields=id,name,picture,link"
     @friendListURL: ->
       "#{BASE_URL}/me/friends?access_token=#{@getAccessToken()}" +
-      "&fields=id,name,picture,cover"
+      "&fields=id,name,picture,link"
 
