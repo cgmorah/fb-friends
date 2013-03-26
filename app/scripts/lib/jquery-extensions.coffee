@@ -23,7 +23,9 @@ require [
 
       el.addClass "out"
       el.one end, =>
+        return unless el.hasClass "out"
         el[method]()
+        el.removeClass "out"
         callback?()
 
     (remove, callback) ->
