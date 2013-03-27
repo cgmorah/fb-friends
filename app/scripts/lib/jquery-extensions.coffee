@@ -20,6 +20,7 @@ require [
       unless Modernizr.csstransitions and Modernizr.cssanimations
         el[method]()
         _.defer(callback) if callback
+        return
 
       el.addClass "out"
       el.one end, =>
