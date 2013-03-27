@@ -259,7 +259,7 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
                     src: [
-                      'scripts/templates/{,*/}*.handlebars'
+                      'scripts/templates/{,*/}*'
                     ]
                 }]
             }
