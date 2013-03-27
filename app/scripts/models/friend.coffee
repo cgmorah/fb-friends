@@ -1,3 +1,1 @@
-define ["backbone", "lib/facebook"], (Backbone, Facebook) ->
-  class Friend extends Backbone.Model
-    url: -> Facebook.friendURL @get("id")
+define ["backbone"], (Backbone) -> class Friend extends Backbone.Model

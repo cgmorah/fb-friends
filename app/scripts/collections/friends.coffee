@@ -5,13 +5,17 @@ define ["backbone", "lib/facebook", "models/friend"]
     comparator: "name"
 
     url: -> Facebook.friendListURL()
-    fetch: ->
-      $.ajax
-        type: "GET"
-        url: @url()
-        dataType: "JSON"
-        success: (response) =>
-          @reset(response.data)
+
+    sync: (method, model, options) ->
+      unless method is "read"
+        Backbone.Model.prototype.sync(method, model, options)
+
+      Facebook.getFriends (response) ->
+        if response.error
+          options?.error?(response)
+        else
+          options?.success?(model, response.data, options)
+        true
 
     initialize: ({app}) ->
       @app = app

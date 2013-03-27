@@ -24,13 +24,13 @@ define ["underscore", "backbone", "facebook-sdk"], (_, Backbone, FacebookSDK) ->
           else
             @trigger("loginFailed", response.status)
 
-    @userURL: ->
-      "#{BASE_URL}/me?access_token=#{@getAccessToken()}" +
-      "&fields=id,name,first_name,last_name,picture,cover"
-    @friendURL: (id) ->
-      "#{BASE_URL}/#{id}?access_token=#{@getAccessToken()}" +
-      "&fields=id,name,picture,link"
-    @friendListURL: ->
-      "#{BASE_URL}/me/friends?access_token=#{@getAccessToken()}" +
-      "&fields=id,name,picture,link"
+    @getUser: (callback) ->
+      FacebookSDK.api("/me", "get", {
+        fields: "id,name,first_name,last_name,picture,cover"
+      }, callback)
+
+    @getFriends: (callback) ->
+      FacebookSDK.api("/me/friends", "get", {
+        fields: "id,name,picture,link"
+      }, callback)
 
