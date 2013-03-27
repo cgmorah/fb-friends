@@ -1,6 +1,5 @@
 define ["underscore", "backbone", "facebook-sdk"], (_, Backbone, FacebookSDK) ->
   class Facebook extends Backbone.Events
-    BASE_URL = "https://graph.facebook.com"
     INIT_OPTIONS =
       appId: "142946932543232"
       channelURL: "/channel.html"
@@ -8,7 +7,6 @@ define ["underscore", "backbone", "facebook-sdk"], (_, Backbone, FacebookSDK) ->
       cookie: true
 
     @init: FacebookSDK.init.bind FacebookSDK, INIT_OPTIONS
-    @getAccessToken: -> FacebookSDK.getAuthResponse()?.accessToken
 
     @loginStatus: (callback) ->
       _.defer FacebookSDK.getLoginStatus, (response) ->

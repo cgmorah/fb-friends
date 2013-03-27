@@ -4,8 +4,6 @@ define ["backbone", "lib/facebook", "models/friend"]
     model: Friend
     comparator: "name"
 
-    url: -> Facebook.friendListURL()
-
     sync: (method, model, options) ->
       unless method is "read"
         Backbone.Model.prototype.sync(method, model, options)
