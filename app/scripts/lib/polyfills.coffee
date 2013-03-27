@@ -1,3 +1,5 @@
+# Function.bind polyfill from https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind#Compatibility
+# Translated to CoffeeScript through http://js2coffee.org/, some syntactical weirdness might apply.
 unless Function::bind
   Function::bind = (oThis) ->
 
