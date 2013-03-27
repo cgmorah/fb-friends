@@ -4,6 +4,9 @@ define ["backbone", "views/friend"]
     tagName: "ul"
     className: "friend-list"
     collection: null
+
+    # A reference to the friend at the top of the
+    # list of currently visible friends
     topFriend: null
 
     initialize: ({app}) ->
@@ -18,6 +21,8 @@ define ["backbone", "views/friend"]
         view = new FriendView(model: friend)
         @$el.append view.render()
         @views.push view
+
+      @topFriend = @views[0]?.model
 
     # Render all friends matching the search string.
     # The search string is interpreted as RegEx.
