@@ -280,9 +280,6 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(rgba(0,0,0,.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,.3) 1px, transparent 1px);
-
-    background-size: 2px 2px, 2px 2px;
+    background-image: url(../images/grid.png);
   }
 }
