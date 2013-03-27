@@ -17,7 +17,7 @@ require [
         remove = false
 
       method = if remove then "remove" else "hide"
-      unless Modernizr.csstransitions
+      unless Modernizr.csstransitions and Modernizr.cssanimations
         el[method]()
         _.defer(callback) if callback
 
